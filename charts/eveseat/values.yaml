@@ -2,46 +2,6 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
-db:
-    replicaCount: 1
-
-    image:
-        repository: mariadb
-        tag: 10.3
-        pullPolicy: IfNotPresent
-
-    service:
-        type: ClusterIP
-        port: 3306
-
-        resources: {}
-
-        nodeSelector: {}
-
-        tolerations: []
-
-        affinity: {}
-
-redis:
-    replicaCount: 1
-
-    image:
-        repository: redis
-        tag: 3
-        pullPolicy: IfNotPresent
-
-        service:
-            type: ClusterIP
-            port: 6379
-
-        resources: {}
-
-        nodeSelector: {}
-
-        tolerations: []
-
-        affinity: {}
-
 web:
     replicaCount: 1
 
