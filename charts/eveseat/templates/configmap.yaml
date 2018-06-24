@@ -1,0 +1,20 @@
+apiVersion: v1
+metadata:
+    name: {{ template "fullname" . }}
+    labels:
+        app: {{ template "fullname" . }}
+        chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+        release: "{{ .Release.Name }}"
+        heritage: "{{ .Release.Service }}"
+data:
+    app-debug: {{ .Values.app.debug }}
+    app-url: {{ .Values.app.url }}
+    app-env: {{ .Values.app.env }}
+    eve-callback-url: {{ .Values.app.url }}/auth/eve/callback
+    seat-plugins: {{ .Values.seat.plugins }}
+    db-database: {{ .Values.db.database }}
+    mail-driver: {{ .Values.mail.driver }}
+    mail-host: {{ .Values.mail.host }}
+    mail-encryption: {{ .Values.mail.encryption }}
+    mail-from-address: {{ .Values.mail.fromAddress }}
+    mail-from-name: {{ .Values.mail.fromName }}

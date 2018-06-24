@@ -44,6 +44,31 @@ tolerations: []
 
 affinity: {}
 
-dbPassword:
-dbUsername: seat
+db:
+    password:
+    username: seat
+    database: seat
+
+app:
+    url:
+    debug: false
+    key:
+    env: local
+
+eve:
+    clientId:
+    clientSecret:
+
+mail:
+    driver: smtp
+    host:
+    port: 587
+    username:
+    password:
+    encryption: ntls
+    fromAddress:
+    fromName:
+
+seat:
+    plugins:
 
