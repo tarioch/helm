@@ -8,7 +8,7 @@ metadata:
         release: "{{ .Release.Name }}"
         heritage: "{{ .Release.Service }}"
 data:
-    app-debug: {{ .Values.app.debug }}
+    app-debug: {{ .Values.app.debug | quote }}
     app-url: {{ .Values.app.url | quote }}
     app-env: {{ .Values.app.env | quote }}
     eve-callback-url: "{{ .Values.app.url }}/auth/eve/callback"
