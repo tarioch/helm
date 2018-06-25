@@ -25,19 +25,32 @@ spec:
           imagePullPolicy: {{ .Values.app.image.pullPolicy }}
           env:
             - name: DB_HOST
-              value: {{ .Release.Name}}-mariadb
+              value: {{ .Release.Name }}-mariadb
+            - name: DB_DATABASE
+              value: {{ .Values.mariadb.name }}
+            - name: DB_USERNAME
+              value: {{ .Values.mariadb.user }}
             - name: DB_PASSWORD
               valueFrom:
                 secretKeyRef:
                   name: {{ .Release.Name }}-mariadb
                   key: mariadb-password
             - name: REDIS_HOST
-              value: redis
+              value: {{ .Release.Name }}-redis
             - name: REDIS_PASSWORD
               valueFrom:
                 secretKeyRef:
                   name: {{ .Release.Name }}-redis
                   key: redis-password
+            - name: APP_ENV
+              value: {{ .Values.app.env }}
+            - name: APP_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Release.Name }}-eveseat
+                  key: app-key
+            - name: SEAT_PLUGINS
+              value: {{ .Values.seat.plugins }}
           resources:
 {{ toYaml .Values.app.resources | indent 12 }}
     {{- with .Values.app.nodeSelector }}
