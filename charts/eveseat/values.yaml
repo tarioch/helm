@@ -5,9 +5,10 @@
 mariadb:
     replication:
         enabled: false
-    name: seat
-    user: seat
-    password:
+    db:
+      name: seat
+      user: seat
+      password:
 
 redis:
     cluster:

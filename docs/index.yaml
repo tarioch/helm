@@ -3,11 +3,11 @@ entries:
   eveseat:
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2018-06-25T14:57:02.183498718+02:00
+    created: 2018-06-25T15:01:21.41784703+02:00
     description: A Helm chart for EVE SeAT
-    digest: 2e6400c0f2c11f3359bf60695f9761b2a2188e899c47164eb99beec3590aa714
+    digest: dcd2809a569042faca1838c4d3f6e82ca28f845c026901bd0ace67a32ab13188
     name: eveseat
     urls:
     - eveseat-0.1.0.tgz
     version: 0.1.0
-generated: 2018-06-25T14:57:02.181645297+02:00
+generated: 2018-06-25T15:01:21.415962915+02:00
