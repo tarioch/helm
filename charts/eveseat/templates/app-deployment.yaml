@@ -23,6 +23,21 @@ spec:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.app.image.repository }}:{{ .Values.app.image.tag }}"
           imagePullPolicy: {{ .Values.app.image.pullPolicy }}
+          env:
+            - name: DB_HOST
+              value: {{ .Release.Name}}-mariadb
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Release.Name }}-mariadb
+                  key: mariadb-password
+            - name: REDIS_HOST
+              value: redis
+            - name: REDIS_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Release.Name }}-redis
+                  key: redis-password
           resources:
 {{ toYaml .Values.app.resources | indent 12 }}
     {{- with .Values.app.nodeSelector }}
