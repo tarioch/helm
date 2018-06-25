@@ -99,17 +99,18 @@ ingress:
   #    hosts:
   #      - chart-example.local
 
-app:
+global:
+  app:
     url:
     debug: false
     key:
     env: local
 
-eve:
+  eve:
     clientId:
     clientSecret:
 
-mail:
+  mail:
     driver: smtp
     host:
     port: 587
@@ -119,6 +120,6 @@ mail:
     fromAddress:
     fromName:
 
-seat:
+  seat:
     plugins:
 

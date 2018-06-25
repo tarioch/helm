@@ -43,7 +43,7 @@ spec:
                   name: {{ .Release.Name }}-redis
                   key: redis-password
             - name: APP_ENV
-              value: {{ .Values.app.env }}
+              value: {{ .Values.global.app.env }}
             - name: APP_KEY
               valueFrom:
                 secretKeyRef:
