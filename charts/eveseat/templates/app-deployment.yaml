@@ -27,9 +27,9 @@ spec:
             - name: DB_HOST
               value: {{ .Release.Name }}-mariadb
             - name: DB_DATABASE
-              value: {{ .Values.mariadb.name }}
+              value: {{ .Values.mariadb.db.name }}
             - name: DB_USERNAME
-              value: {{ .Values.mariadb.user }}
+              value: {{ .Values.mariadb.db.user }}
             - name: DB_PASSWORD
               valueFrom:
                 secretKeyRef:
