@@ -75,7 +75,7 @@ spec:
               value: {{ .Values.global.seat.plugins }}
           resources:
  {{ toYaml .Values.web.resources | indent 12 }}
-         - name: {{ .Chart.Name }}-app
+        - name: {{ .Chart.Name }}-app
           image: "{{ .Values.app.image.repository }}:{{ .Values.app.image.tag }}"
           imagePullPolicy: {{ .Values.app.image.pullPolicy }}
           volumeMounts:
@@ -111,7 +111,7 @@ spec:
               value: {{ .Values.global.seat.plugins }}
           resources:
 {{ toYaml .Values.worker.resources | indent 12 }}
-         - name: {{ .Chart.Name }}-worker
+        - name: {{ .Chart.Name }}-worker
           image: "{{ .Values.worker.image.repository }}:{{ .Values.worker.image.tag }}"
           imagePullPolicy: {{ .Values.worker.image.pullPolicy }}
           volumeMounts:
@@ -147,7 +147,7 @@ spec:
               value: {{ .Values.global.seat.plugins }}
           resources:
 {{ toYaml .Values.worker.resources | indent 12 }}
-         - name: {{ .Chart.Name }}-cron
+        - name: {{ .Chart.Name }}-cron
           image: "{{ .Values.cron.image.repository }}:{{ .Values.cron.image.tag }}"
           imagePullPolicy: {{ .Values.cron.image.pullPolicy }}
           volumeMounts:
