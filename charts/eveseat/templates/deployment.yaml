@@ -1,0 +1,197 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: {{ template "eveseat.fullname" . }}
+  labels:
+    app: {{ template "eveseat.name" . }}
+    chart: {{ template "eveseat.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ template "eveseat.name" . }}
+      release: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        app: {{ template "eveseat.name" . }}
+        release: {{ .Release.Name }}
+    spec:
+      volumes:
+        - name: seat-code
+          emptyDir: {}
+      containers:
+        - name: {{ .Chart.Name }}-web
+          image: "{{ .Values.web.image.repository }}:{{ .Values.web.image.tag }}"
+          imagePullPolicy: {{ .Values.web.image.pullPolicy }}
+          volumeMounts:
+          - name: seat-code
+            mountPath: /var/www/seat
+          command: ["/bin/sh"]
+          args: ["-c", "envsubst '${NGINX_HOST}' < /etc/nginx/nginx.conf.template > /etc/nginx/nginx.conf && nginx -g 'daemon off;'"]
+          ports:
+          - name: http
+            containerPort: 80
+            protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /
+              port: http
+          readiniessProbe:
+            httpGet:
+              path: /
+              port: http
+          env:
+            - name: NGINX_HOST
+              value: _
+            - name: DB_HOST
+              value: {{ .Release.Name }}-mariadb
+            - name: DB_DATABASE
+              value: {{ .Values.mariadb.db.name }}
+            - name: DB_USERNAME
+              value: {{ .Values.mariadb.db.user }}
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Release.Name }}-mariadb
+                  key: mariadb-password
+            - name: REDIS_HOST
+              value: {{ .Release.Name }}-redis
+            - name: REDIS_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Release.Name }}-redis
+                  key: redis-password
+            - name: APP_ENV
+              value: {{ .Values.global.app.env }}
+            - name: APP_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Release.Name }}-eveseat
+                  key: app-key
+            - name: SEAT_PLUGINS
+              value: {{ .Values.global.seat.plugins }}
+          resources:
+ {{ toYaml .Values.web.resources | indent 12 }}
+         - name: {{ .Chart.Name }}-app
+          image: "{{ .Values.app.image.repository }}:{{ .Values.app.image.tag }}"
+          imagePullPolicy: {{ .Values.app.image.pullPolicy }}
+          volumeMounts:
+          - name: seat-code
+            mountPath: /var/www/seat
+          env:
+            - name: DB_HOST
+              value: {{ .Release.Name }}-mariadb
+            - name: DB_DATABASE
+              value: {{ .Values.mariadb.db.name }}
+            - name: DB_USERNAME
+              value: {{ .Values.mariadb.db.user }}
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Release.Name }}-mariadb
+                  key: mariadb-password
+            - name: REDIS_HOST
+              value: {{ .Release.Name }}-redis
+            - name: REDIS_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Release.Name }}-redis
+                  key: redis-password
+            - name: APP_ENV
+              value: {{ .Values.global.app.env }}
+            - name: APP_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Release.Name }}-eveseat
+                  key: app-key
+            - name: SEAT_PLUGINS
+              value: {{ .Values.global.seat.plugins }}
+          resources:
+{{ toYaml .Values.worker.resources | indent 12 }}
+         - name: {{ .Chart.Name }}-worker
+          image: "{{ .Values.worker.image.repository }}:{{ .Values.worker.image.tag }}"
+          imagePullPolicy: {{ .Values.worker.image.pullPolicy }}
+          volumeMounts:
+          - name: seat-code
+            mountPath: /var/www/seat
+          env:
+            - name: DB_HOST
+              value: {{ .Release.Name }}-mariadb
+            - name: DB_DATABASE
+              value: {{ .Values.mariadb.db.name }}
+            - name: DB_USERNAME
+              value: {{ .Values.mariadb.db.user }}
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Release.Name }}-mariadb
+                  key: mariadb-password
+            - name: REDIS_HOST
+              value: {{ .Release.Name }}-redis
+            - name: REDIS_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Release.Name }}-redis
+                  key: redis-password
+            - name: APP_ENV
+              value: {{ .Values.global.app.env }}
+            - name: APP_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Release.Name }}-eveseat
+                  key: app-key
+            - name: SEAT_PLUGINS
+              value: {{ .Values.global.seat.plugins }}
+          resources:
+{{ toYaml .Values.worker.resources | indent 12 }}
+         - name: {{ .Chart.Name }}-cron
+          image: "{{ .Values.cron.image.repository }}:{{ .Values.cron.image.tag }}"
+          imagePullPolicy: {{ .Values.cron.image.pullPolicy }}
+          volumeMounts:
+          - name: seat-code
+            mountPath: /var/www/seat
+          env:
+            - name: DB_HOST
+              value: {{ .Release.Name }}-mariadb
+            - name: DB_DATABASE
+              value: {{ .Values.mariadb.db.name }}
+            - name: DB_USERNAME
+              value: {{ .Values.mariadb.db.user }}
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Release.Name }}-mariadb
+                  key: mariadb-password
+            - name: REDIS_HOST
+              value: {{ .Release.Name }}-redis
+            - name: REDIS_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Release.Name }}-redis
+                  key: redis-password
+            - name: APP_ENV
+              value: {{ .Values.global.app.env }}
+            - name: APP_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Release.Name }}-eveseat
+                  key: app-key
+            - name: SEAT_PLUGINS
+              value: {{ .Values.global.seat.plugins }}
+          resources:
+{{ toYaml .Values.cron.resources | indent 12 }}
+    {{- with .Values.nodeSelector }}
+      nodeSelector:
+{{ toYaml . | indent 8 }}
+    {{- end }}
+    {{- with .Values.affinity }}
+      affinity:
+{{ toYaml . | indent 8 }}
+    {{- end }}
+    {{- with .Values.tolerations }}
+      tolerations:
+{{ toYaml . | indent 8 }}
+    {{- end }}

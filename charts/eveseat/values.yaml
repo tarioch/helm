@@ -16,72 +16,37 @@ redis:
     password:
 
 web:
-    replicaCount: 1
-
     image:
         repository: eveseat/eveseat-nginx
         tag: latest
         pullPolicy: IfNotPresent
-
-    service:
-        type: ClusterIP
-        port: 80
-
     resources: {}
 
-    nodeSelector: {}
-
-    tolerations: []
-
-    affinity: {}
-
 app:
-    replicaCount: 1
-
     image:
         repository: eveseat/eveseat-app
         tag: latest
         pullPolicy: IfNotPresent
-
     resources: {}
 
-    nodeSelector: {}
-
-    tolerations: []
-
-    affinity: {}
-
 worker:
-    replicaCount: 1
-
     image:
         repository: eveseat/eveseat-worker
         tag: latest
         pullPolicy: IfNotPresent
-
     resources: {}
 
-    nodeSelector: {}
-
-    tolerations: []
-
-    affinity: {}
-
 cron:
-    replicaCount: 1
-
     image:
         repository: eveseat/eveseat-cron
         tag: latest
         pullPolicy: IfNotPresent
-
     resources: {}
 
-    nodeSelector: {}
-
-    tolerations: []
-
-    affinity: {}
+replicaCount: 1
+nodeSelector: {}
+tolarations: []
+affinity: {}
 
 service:
   type: ClusterIP
