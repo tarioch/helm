@@ -30,7 +30,7 @@ spec:
           - name: seat-code
             mountPath: /var/www/seat
           command: ["/bin/sh"]
-          args: ["-c", "envsubst '${NGINX_HOST}' < /etc/nginx/nginx.conf.template > /etc/nginx/nginx.conf && nginx -g 'daemon off;'"]
+          args: ["-c", "envsubst '${NGINX_HOST}' < /etc/nginx/nginx.conf.template > /etc/nginx/nginx.conf && sed -i 's/seat-app/localhost/g' /etc/nginx/nginx.conf && nginx -g 'daemon off;'"]
           ports:
           - name: http
             containerPort: 80
