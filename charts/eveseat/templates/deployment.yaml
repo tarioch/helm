@@ -35,14 +35,6 @@ spec:
           - name: http
             containerPort: 80
             protocol: TCP
-          livenessProbe:
-            httpGet:
-              path: /
-              port: http
-          readiniessProbe:
-            httpGet:
-              path: /
-              port: http
           env:
             - name: NGINX_HOST
               value: _
