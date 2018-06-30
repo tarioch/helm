@@ -3,8 +3,10 @@
 # Declare variables to be passed into your templates.
 
 mariadb:
+    image:
+      tag: 10.2
     replication:
-        enabled: false
+      enabled: false
     db:
       name: seat
       user: seat
