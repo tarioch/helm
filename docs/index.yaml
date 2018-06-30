@@ -3,9 +3,9 @@ entries:
   eveseat:
   - apiVersion: v1
     appVersion: 3.0.0
-    created: 2018-06-30T14:26:10.475438062+02:00
+    created: 2018-06-30T15:10:48.866375574+02:00
     description: A Helm chart for EVE SeAT
-    digest: c0aebd8986f00f5a8f0218a1a9111ad1a1a711ec319df09879e7bc01d5afce6c
+    digest: 03ba1d0e6c44201a5fbebe514105dab0f5a6c2f754874696d4dc343a94ed59ef
     home: https://eveseat.github.io
     keywords:
     - eveseat
@@ -14,4 +14,4 @@ entries:
     urls:
     - eveseat-0.1.0.tgz
     version: 0.1.0
-generated: 2018-06-30T14:26:10.473614086+02:00
+generated: 2018-06-30T15:10:48.863973368+02:00
