@@ -54,6 +54,9 @@ The command removes all the Kubernetes components associated with the chart and 
 | `global.mail.fromAddress`                 | From address for sending mails                      | ``                                                                |
 | `global.mail.fromName`                    | From name for sending mails                         | ``                                                                |
 | `global.seat.plugins`                     | SeAT plugins to install                             | ``                                                                |
+| `mariadb.rootUser.password`               | DB root password                                    | random                                                            |
+| `mariadb.db.password`                     | DB password                                         | random                                                            |
+| `redis.password`                          | Redis password                                      | random                                                            |
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm install`. For example,
 
