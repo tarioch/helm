@@ -65,3 +65,17 @@ $ helm install --name my-release \
 
 > **Tip**: You can use the default [values.yaml](values.yaml)
 
+## DB Backup/Restore
+
+To backup the database, first you will have to find the name of the pod for the database, this is named releaseName-mariadb. e.g. if the releaseName is eveseat, it would be
+
+```bash
+$ kubectl exec eveseat-mariadb-0 -- sh -c 'exec mysqldump "$MARIADB_DATABASE" -u"$MARIADB_USER" -p"$MARIADB_PASSWORD"' | gzip > seat_backup.sql.gz
+```
+
+and to restore
+
+```bash
+$ zcat seat_backup.sql.gz | kubectl exec -i eveseat-mariadb-0 -- sh -c 'exec mysql "$MARIADB_DATABASE" -u"$MARIADB_USER" -p"$MARIADB_PASSWORD"'
+```
+
