@@ -43,6 +43,7 @@ The command removes all the Kubernetes components associated with the chart and 
 
 |             Parameter                     |                     Description                     |                              Default                              |
 |-------------------------------------------|-----------------------------------------------------|-------------------------------------------------------------------|
+| `global.app.key`                          | Encryption key                                      | random                                                            |
 | `global.app.url`                          | URL where the application will be deployed          | ``                                                                |
 | `global.eve.clientId`                     | EVE Client Id from Dev Section                      | ``                                                                |
 | `global.eve.secret`                       | EVE Secret from Dev Section                         | ``                                                                |
