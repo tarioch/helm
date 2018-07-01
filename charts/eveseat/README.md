@@ -61,7 +61,7 @@ Specify each parameter using the `--set key=value[,key=value]` argument to `helm
 $ helm install --name my-release \
   --set global.app.url=https://foobar.example.tld,global.eve.clientId=secret,global.eve.secret=secret \
       tarioch/eveseat
-      ```
+```
 
 > **Tip**: You can use the default [values.yaml](values.yaml)
 
