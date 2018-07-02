@@ -66,11 +66,11 @@ spec:
                   name: {{ .Release.Name }}-redis
                   key: redis-password
             - name: APP_DEBUG
-              value: {{ .Values.global.app.debug }}
+              value: {{ .Values.global.app.debug|quote }}
             - name: APP_URL
-              value: {{ .Values.global.app.url }}
+              value: {{ .Values.global.app.url|quote }}
             - name: APP_ENV
-              value: {{ .Values.global.app.env }}
+              value: {{ .Values.global.app.env|quote }}
             - name: APP_KEY
               valueFrom:
                 secretKeyRef:
@@ -87,28 +87,28 @@ spec:
                   name: {{ template "eveseat.fullname" . }}
                   key: eve-client-secret
             - name: EVE_CALLBACK_URL
-              value: {{ .Values.global.app.url }}/auth/eve/callback
+              value: "{{ .Values.global.app.url }}/auth/eve/callback"
             - name: MAIL_DRIVER
-              value: {{ .Values.global.mail.driver }}
+              value: {{ .Values.global.mail.driver|quote }}
             - name: MAIL_HOST
-              value: {{ .Values.global.mail.host }}
+              value: {{ .Values.global.mail.host|quote }}
             - name: MAIL_PORT
               value: {{ .Values.global.mail.port|quote }}
             - name: MAIL_USERNAME
-              value: {{ .Values.global.mail.username }}
+              value: {{ .Values.global.mail.username|quote }}
             - name: MAIL_PASSWORD
               valueFrom:
                 secretKeyRef:
                   name: {{ template "eveseat.fullname" . }}
                   key: mail-password
             - name: MAIL_ENCRYPTION
-              value: {{ .Values.global.mail.encryption }}
+              value: {{ .Values.global.mail.encryption|quote }}
             - name: MAIL_FROM_ADDRESS
-              value: {{ .Values.global.mail.fromAddress }}
+              value: {{ .Values.global.mail.fromAddress|quote }}
             - name: MAIL_FROM_NAME
-              value: {{ .Values.global.mail.fromName }}
+              value: {{ .Values.global.mail.fromName|quote }}
             - name: SEAT_PLUGINS
-              value: {{ .Values.global.seat.plugins }}
+              value: {{ .Values.global.seat.plugins|quote }}
           resources:
 {{ toYaml .Values.worker.resources | indent 12 }}
         - name: {{ .Chart.Name }}-worker
@@ -137,11 +137,11 @@ spec:
                   name: {{ .Release.Name }}-redis
                   key: redis-password
             - name: APP_DEBUG
-              value: {{ .Values.global.app.debug }}
+              value: {{ .Values.global.app.debug|quote }}
             - name: APP_URL
-              value: {{ .Values.global.app.url }}
+              value: {{ .Values.global.app.url|quote }}
             - name: APP_ENV
-              value: {{ .Values.global.app.env }}
+              value: {{ .Values.global.app.env|quote }}
             - name: APP_KEY
               valueFrom:
                 secretKeyRef:
@@ -158,28 +158,28 @@ spec:
                   name: {{ template "eveseat.fullname" . }}
                   key: eve-client-secret
             - name: EVE_CALLBACK_URL
-              value: {{ .Values.global.app.url }}/auth/eve/callback
+              value: "{{ .Values.global.app.url }}/auth/eve/callback"
             - name: MAIL_DRIVER
-              value: {{ .Values.global.mail.driver }}
+              value: {{ .Values.global.mail.driver|quote }}
             - name: MAIL_HOST
-              value: {{ .Values.global.mail.host }}
+              value: {{ .Values.global.mail.host|quote }}
             - name: MAIL_PORT
               value: {{ .Values.global.mail.port|quote }}
             - name: MAIL_USERNAME
-              value: {{ .Values.global.mail.username }}
+              value: {{ .Values.global.mail.username|quote }}
             - name: MAIL_PASSWORD
               valueFrom:
                 secretKeyRef:
                   name: {{ template "eveseat.fullname" . }}
                   key: mail-password
             - name: MAIL_ENCRYPTION
-              value: {{ .Values.global.mail.encryption }}
+              value: {{ .Values.global.mail.encryption|quote }}
             - name: MAIL_FROM_ADDRESS
-              value: {{ .Values.global.mail.fromAddress }}
+              value: {{ .Values.global.mail.fromAddress|quote }}
             - name: MAIL_FROM_NAME
-              value: {{ .Values.global.mail.fromName }}
+              value: {{ .Values.global.mail.fromName|quote }}
             - name: SEAT_PLUGINS
-              value: {{ .Values.global.seat.plugins }}
+              value: {{ .Values.global.seat.plugins|quote }}
           resources:
 {{ toYaml .Values.worker.resources | indent 12 }}
         - name: {{ .Chart.Name }}-cron
@@ -208,11 +208,11 @@ spec:
                   name: {{ .Release.Name }}-redis
                   key: redis-password
             - name: APP_DEBUG
-              value: {{ .Values.global.app.debug }}
+              value: {{ .Values.global.app.debug|quote }}
             - name: APP_URL
-              value: {{ .Values.global.app.url }}
+              value: {{ .Values.global.app.url|quote }}
             - name: APP_ENV
-              value: {{ .Values.global.app.env }}
+              value: {{ .Values.global.app.env|quote }}
             - name: APP_KEY
               valueFrom:
                 secretKeyRef:
@@ -229,28 +229,28 @@ spec:
                   name: {{ template "eveseat.fullname" . }}
                   key: eve-client-secret
             - name: EVE_CALLBACK_URL
-              value: {{ .Values.global.app.url }}/auth/eve/callback
+              value: "{{ .Values.global.app.url }}/auth/eve/callback"
             - name: MAIL_DRIVER
-              value: {{ .Values.global.mail.driver }}
+              value: {{ .Values.global.mail.driver|quote }}
             - name: MAIL_HOST
-              value: {{ .Values.global.mail.host }}
+              value: {{ .Values.global.mail.host|quote }}
             - name: MAIL_PORT
               value: {{ .Values.global.mail.port|quote }}
             - name: MAIL_USERNAME
-              value: {{ .Values.global.mail.username }}
+              value: {{ .Values.global.mail.username|quote }}
             - name: MAIL_PASSWORD
               valueFrom:
                 secretKeyRef:
                   name: {{ template "eveseat.fullname" . }}
                   key: mail-password
             - name: MAIL_ENCRYPTION
-              value: {{ .Values.global.mail.encryption }}
+              value: {{ .Values.global.mail.encryption|quote }}
             - name: MAIL_FROM_ADDRESS
-              value: {{ .Values.global.mail.fromAddress }}
+              value: {{ .Values.global.mail.fromAddress|quote }}
             - name: MAIL_FROM_NAME
-              value: {{ .Values.global.mail.fromName }}
+              value: {{ .Values.global.mail.fromName|quote }}
             - name: SEAT_PLUGINS
-              value: {{ .Values.global.seat.plugins }}
+              value: {{ .Values.global.seat.plugins|quote }}
           resources:
 {{ toYaml .Values.cron.resources | indent 12 }}
     {{- with .Values.nodeSelector }}
