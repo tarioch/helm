@@ -93,7 +93,7 @@ spec:
             - name: MAIL_HOST
               value: {{ .Values.global.mail.host }}
             - name: MAIL_PORT
-              value: {{ .Values.global.mail.port }}
+              value: {{ .Values.global.mail.port|quote }}
             - name: MAIL_USERNAME
               value: {{ .Values.global.mail.username }}
             - name: MAIL_PASSWORD
@@ -164,7 +164,7 @@ spec:
             - name: MAIL_HOST
               value: {{ .Values.global.mail.host }}
             - name: MAIL_PORT
-              value: {{ .Values.global.mail.port }}
+              value: {{ .Values.global.mail.port|quote }}
             - name: MAIL_USERNAME
               value: {{ .Values.global.mail.username }}
             - name: MAIL_PASSWORD
@@ -235,7 +235,7 @@ spec:
             - name: MAIL_HOST
               value: {{ .Values.global.mail.host }}
             - name: MAIL_PORT
-              value: {{ .Values.global.mail.port }}
+              value: {{ .Values.global.mail.port|quote }}
             - name: MAIL_USERNAME
               value: {{ .Values.global.mail.username }}
             - name: MAIL_PASSWORD
