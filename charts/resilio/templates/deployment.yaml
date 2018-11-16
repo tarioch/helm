@@ -30,16 +30,6 @@ spec:
             - name: resilio
               containerPort: 55555
               protocol: TCP
-          livenessProbe:
-            httpGet:
-              path: /
-              port: http
-            periodSeconds: 300
-          readinessProbe:
-            httpGet:
-              path: /
-              port: http
-            periodSeconds: 300
           resources:
 {{ toYaml .Values.resources | indent 12 }}
           volumeMounts:
