@@ -3,9 +3,9 @@ entries:
   eveseat:
   - apiVersion: v1
     appVersion: 3.0.0
-    created: 2018-10-07T22:09:44.923438213+02:00
+    created: 2018-11-16T23:04:27.648735689+01:00
     description: A Helm chart for EVE SeAT
-    digest: acf7186f965373c621d272ca6b5af5aac359636fc83b638a09d4eb5b59c5c7d4
+    digest: 06429ef962c413abd802da929a853806fce52929c050c5eda9b6e676870b8759
     home: https://eveseat.github.io
     keywords:
     - eveseat
@@ -17,9 +17,9 @@ entries:
   fava:
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2018-10-07T22:09:44.923627092+02:00
+    created: 2018-11-16T23:04:27.648920299+01:00
     description: A Helm chart for Kubernetes
-    digest: 8371f6868ec83ca01ad66499e71e6e572b9da82a07f2c7f630ca40b3f96a42c9
+    digest: 95a14b1939fe21baba1548b85597526e15da8b7b60d65de923a2659361b2bdde
     name: fava
     urls:
     - fava-0.1.0.tgz
@@ -27,11 +27,21 @@ entries:
   poolmon:
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2018-10-07T22:09:44.923785473+02:00
+    created: 2018-11-16T23:04:27.649073883+01:00
     description: Poolmon fetches statistics from different mining pools.
-    digest: 0e1b285ea29ce8354c50426a3d049f2bcf307b6de3a7c5ce9e9564ec0d47d23c
+    digest: cc3d4e02757f101e17c34f4478bc78b4062aec96358a11f6ce90969421d5f362
     name: poolmon
     urls:
     - poolmon-0.1.0.tgz
     version: 0.1.0
-generated: 2018-10-07T22:09:44.921878984+02:00
+  resilio:
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: 2018-11-16T23:04:27.649259235+01:00
+    description: A Helm chart for Kubernetes
+    digest: 3752740ece26df39fb7db917387ea699b1cac76a5e0cf8a2986f8a55e0df3736
+    name: resilio
+    urls:
+    - resilio-0.1.0.tgz
+    version: 0.1.0
+generated: 2018-11-16T23:04:27.647259699+01:00
