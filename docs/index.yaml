@@ -3,9 +3,9 @@ entries:
   eveseat:
   - apiVersion: v1
     appVersion: 3.0.0
-    created: 2018-11-16T23:39:25.069483867+01:00
+    created: 2018-11-18T20:07:37.032644631+01:00
     description: A Helm chart for EVE SeAT
-    digest: dffe6afd493d058459992a6368bc39cc968178b057c6390d874232b92d73b633
+    digest: 54c99de774d894fab368625b404bb48ffbad49214711c6196ecee150276cdeca
     home: https://eveseat.github.io
     keywords:
     - eveseat
@@ -17,9 +17,9 @@ entries:
   fava:
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2018-11-16T23:39:25.069677494+01:00
+    created: 2018-11-18T20:07:37.032828543+01:00
     description: A Helm chart for Kubernetes
-    digest: 0c008bb2201fd1f71a1634ab1597e13f7112ff129a7a4d37637c9d727fe0de92
+    digest: 65e5a377310e0c423ee7f0a388970b9eece22bb8dc8ffc44a75c01b709d0b9c7
     name: fava
     urls:
     - fava-0.1.0.tgz
@@ -27,9 +27,9 @@ entries:
   poolmon:
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2018-11-16T23:39:25.069834653+01:00
+    created: 2018-11-18T20:07:37.0329879+01:00
     description: Poolmon fetches statistics from different mining pools.
-    digest: 6878d4435ec312df529f412c352021a5e69accc84843f215ba0db143be8abbc5
+    digest: 5aceede343f05e28ad16fa9735fec4b585500038a17e261730f5b06fd094c524
     name: poolmon
     urls:
     - poolmon-0.1.0.tgz
@@ -37,11 +37,21 @@ entries:
   resilio:
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2018-11-16T23:39:25.070018338+01:00
+    created: 2018-11-18T20:07:37.033203026+01:00
     description: A Helm chart for Kubernetes
-    digest: 3463c6f0c4f079c7b014c5573dde468c5cf331f1519e6d6ff430ca5f9a77c148
+    digest: 3af70018a0ec597bc41d5914565625ae6e7a495175162aa469ed64bb7be7645e
     name: resilio
     urls:
     - resilio-0.1.0.tgz
     version: 0.1.0
-generated: 2018-11-16T23:39:25.068031131+01:00
+  syncthing:
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: 2018-11-18T20:07:37.033395016+01:00
+    description: A Helm chart for Kubernetes
+    digest: 6577e5a1ae5c21109f8e1a826641d8402bbdf7a4b6c9ac597cc1d73f89fca387
+    name: syncthing
+    urls:
+    - syncthing-0.1.0.tgz
+    version: 0.1.0
+generated: 2018-11-18T20:07:37.031197477+01:00
