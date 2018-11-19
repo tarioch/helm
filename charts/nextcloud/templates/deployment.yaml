@@ -27,19 +27,13 @@ spec:
             - name: http
               containerPort: 80
               protocol: TCP
-          livenessProbe:
-            httpGet:
-              path: /
-              port: http
-          readinessProbe:
-            httpGet:
-              path: /
-              port: http
           resources:
 {{ toYaml .Values.resources | indent 12 }}
           volumeMounts:
             - name: data
               mountPath: /var/www/html
+            - name: externaldata
+              mountPath: /mnt/external
       volumes:
         - name: data
       {{- if .Values.persistence.enabled }}
@@ -47,7 +41,10 @@ spec:
             claimName: {{ template "nextcloud.fullname" . }}
       {{- else }}
           emptyDir: {}
-      {{- end -}}
+      {{- end }}
+        - name: externaldata
+          hostPath:
+            path: {{ .Values.externalDataPath }}
     {{- with .Values.nodeSelector }}
       nodeSelector:
 {{ toYaml . | indent 8 }}
