@@ -1,25 +1,20 @@
-# Default values for syncthing.
+# Default values for nextcloud.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
 replicaCount: 1
 
 image:
-  repository: linuxserver/syncthing
-  tag: latest
+  repository: nextcloud 
+  tag: 13 
   pullPolicy: IfNotPresent
 
 nameOverride: ""
 fullnameOverride: ""
 
-puid: 911 
-pgid: 911
-
 service:
   type: ClusterIP
-  httpPort: 80
-  listenerPort: 22000
-  discoveryPort: 21027
+  port: 80
 
 ingress:
   enabled: false
@@ -36,9 +31,9 @@ ingress:
 
 persistence:
   enabled: false
-  # storageClass: "-"
+# storageClass: "-"
   accessMode: ReadWriteOnce
-  size: 1Gi
+  size: 5Gi
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
