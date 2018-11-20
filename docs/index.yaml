@@ -3,9 +3,9 @@ entries:
   eveseat:
   - apiVersion: v1
     appVersion: 3.0.0
-    created: 2018-11-19T21:56:31.903476908+01:00
+    created: 2018-11-20T20:30:44.843071802+01:00
     description: A Helm chart for EVE SeAT
-    digest: 694c2cbb36637750a3e16a1fd898e2af0fee09108633c07e56babb17e36c5b10
+    digest: b0583f541db967829d6b0f058d1d0dde4559d52bf34d89f82fa852e66dd3f13c
     home: https://eveseat.github.io
     keywords:
     - eveseat
@@ -17,9 +17,9 @@ entries:
   fava:
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2018-11-19T21:56:31.90368831+01:00
+    created: 2018-11-20T20:30:44.843255451+01:00
     description: A Helm chart for Kubernetes
-    digest: a130edec6bc3627c6ba77adff0af01657fc11e562b32b123142a07673f005d60
+    digest: d5c744f59e6fe9bafcbd759906f52213098407e4a655ac30d211078af414530f
     name: fava
     urls:
     - fava-0.1.0.tgz
@@ -27,9 +27,9 @@ entries:
   nextcloud:
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2018-11-19T21:56:31.903883744+01:00
+    created: 2018-11-20T20:30:44.843454035+01:00
     description: A Helm chart for Kubernetes
-    digest: a1a0213339a832a7ad5f4233eab5dc547ff1f9101211b558f8a0312f508c2880
+    digest: 36efe2d395a1eff294ee23ed1a5b9a7039cfd77375eb43b73380fa1c6781cb96
     name: nextcloud
     urls:
     - nextcloud-0.1.0.tgz
@@ -37,9 +37,9 @@ entries:
   poolmon:
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2018-11-19T21:56:31.904106794+01:00
+    created: 2018-11-20T20:30:44.843608746+01:00
     description: Poolmon fetches statistics from different mining pools.
-    digest: 75e5ad72adc5ae0e05bc58272841f0cc83dcf510f4464af03e12304257f89f2d
+    digest: 7af8a64f719f2ac350625046b98733019e7ac6b7773806a511dbe7645292564c
     name: poolmon
     urls:
     - poolmon-0.1.0.tgz
@@ -47,9 +47,9 @@ entries:
   resilio:
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2018-11-19T21:56:31.904286019+01:00
+    created: 2018-11-20T20:30:44.84382485+01:00
     description: A Helm chart for Kubernetes
-    digest: fc046a5ad19d689afaf90c930b1cb3223cc4e93bd8e88d9bf5f3c4c71bf18f59
+    digest: dbcf3b7c7fd248f6d7e1c902aea9584a0218d11622fc6a13b634eadd65fafab9
     name: resilio
     urls:
     - resilio-0.1.0.tgz
@@ -57,11 +57,11 @@ entries:
   syncthing:
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2018-11-19T21:56:31.904477658+01:00
+    created: 2018-11-20T20:30:44.844052447+01:00
     description: A Helm chart for Kubernetes
-    digest: 8a8e20b66d4c3e31a6c694dd90f6d57e0373cc47243a84859591019909f9d1e0
+    digest: c1a1d2dcfa901ec4c3fdb2610a370227336e85088a18c51d6da8120c483b4ab9
     name: syncthing
     urls:
     - syncthing-0.1.0.tgz
     version: 0.1.0
-generated: 2018-11-19T21:56:31.902017236+01:00
+generated: 2018-11-20T20:30:44.841679818+01:00
