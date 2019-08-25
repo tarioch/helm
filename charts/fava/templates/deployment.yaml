@@ -31,10 +31,14 @@ spec:
             httpGet:
               path: /
               port: http
+              periodSeconds: 30
+              timeoutSeconds: 60
           readinessProbe:
             httpGet:
               path: /
               port: http
+              periodSeconds: 30
+              timeoutSeconds: 60
           env:
             - name: BEANCOUNT_INPUT_FILE
               value: "/files/{{ .Values.beancountfile }}"
