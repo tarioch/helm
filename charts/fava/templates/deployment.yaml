@@ -25,20 +25,20 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - name: http
-              containerPort: 5000 
+              containerPort: 5000
               protocol: TCP
           livenessProbe:
+            periodSeconds: 30
+            timeoutSeconds: 60
             httpGet:
               path: /
               port: http
-              periodSeconds: 30
-              timeoutSeconds: 60
           readinessProbe:
+            periodSeconds: 30
+            timeoutSeconds: 60
             httpGet:
               path: /
               port: http
-              periodSeconds: 30
-              timeoutSeconds: 60
           env:
             - name: BEANCOUNT_INPUT_FILE
               value: "/files/{{ .Values.beancountfile }}"
