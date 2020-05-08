@@ -52,3 +52,8 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+redis:
+  password: "authelia"
+  cluster:
+    enabled: false
